@@ -1,0 +1,28 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+--UI LIB BY SHLEXWARE
+
+local Volcan = loadstring(game:HttpGet("https://raw.githubusercontent.com/elproplayer9341341/Volcan/main/Status"))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "Volcan", IntroEnabled = true, IntroText = "Volcan"})
+
+local VTab = Window:MakeTab({
+	Name = "Volcan!",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local VSection = VTab:AddSection({
+	Name = "Volcan"
+})
+
+if Volcan.Status == "Work" then
+VTab:AddLabel("Status: Work")
+else
+VTab:AddLabel("Status: patched")
+end
+
+Tab:AddButton({
+	Name = "Auto Kick",
+	Callback = function()
+      		game.Players.LocalPlayer:Kick("")
+  	end
+})
