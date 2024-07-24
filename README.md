@@ -5,6 +5,6 @@
 # Ban
 · This will not be added.
 # Release
-· Im not sure but in 22 hours - 2 days
+· This will be not released
 · The Script has key system.
 # Enjoy.
