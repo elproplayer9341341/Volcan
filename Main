@@ -1,8 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 --UI LIB BY SHLEXWARE
 
-local Volcan = loadstring(game:HttpGet("https://raw.githubusercontent.com/elproplayer9341341/Volcan/main/Status"))()
+local VolcanState = loadstring(game:HttpGet("https://raw.githubusercontent.com/elproplayer9341341/Volcan/main/Status"))()
 local Window = OrionLib:MakeWindow({Name = "Volcan [TEST]", HidePremium = false, SaveConfig = true, ConfigFolder = "Volcan", IntroEnabled = true, IntroText = "Volcan"})
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local VTab = Window:MakeTab({
 	Name = "Volcan!",
@@ -11,18 +12,65 @@ local VTab = Window:MakeTab({
 })
 
 local VSection = VTab:AddSection({
-	Name = "Volcan"
+	Name = "Volcan | Device"
 })
-
-if Volcan.Status == "Work" then
+local pc = false
+local Mo = false
+if VolcanState then
 VTab:AddLabel("Status: Work")
 else
 VTab:AddLabel("Status: patched")
 end
 
 VTab:AddButton({
-	Name = "Auto Kick",
+	Name = "Mobile",
 	Callback = function()
-      		game.Players.LocalPlayer:Kick("")
+      		Mo = true
+ Fluent:Notify({
+        Title = "Device",
+        Content = "Mobile has been selected",
+        SubContent = "SubContent", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
   	end
 })
+
+VTab:AddButton({
+	Name = "PC",
+	Callback = function()
+      		pc = true
+ Fluent:Notify({
+        Title = "Device",
+        Content = "PC has been selected",
+        SubContent = "SubContent", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
+  	end
+})
+
+local VSTab = Window:MakeTab({
+	Name = "Hub",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local VSSection = VTab:AddSection({
+	Name = "Volcan | Hub"
+})
+
+VTab:AddButton({
+	Name = "Evade - Farm/God",
+	Callback = function()
+      		pc = true
+ Fluent:Notify({
+        Title = "Game",
+        Content = "Evade has been selected",
+        SubContent = "SubContent", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
+  	end
+})
+
